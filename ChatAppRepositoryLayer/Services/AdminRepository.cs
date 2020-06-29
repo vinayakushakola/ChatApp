@@ -4,6 +4,7 @@
 // Purpose   : It Contains Method which add admin details into the database
 //
 
+using ChatAppCommonLayer.Models;
 using ChatAppCommonLayer.RequestModels;
 using ChatAppCommonLayer.ResponseModels;
 using ChatAppRepositoryLayer.Interfaces;
@@ -45,6 +46,7 @@ namespace ChatAppRepositoryLayer.Services
             try
             {
                 AdminRegistrationResponse responseData = null;
+                adminDetails.Password = EncodeDecode.EncodePasswordToBase64(adminDetails.Password);
                 SQLConnection();
                 using (SqlCommand cmd = new SqlCommand("AddUserDetails", conn))
                 {
@@ -80,6 +82,7 @@ namespace ChatAppRepositoryLayer.Services
             try
             {
                 AdminRegistrationResponse responseData = null;
+                loginDetails.Password = EncodeDecode.EncodePasswordToBase64(loginDetails.Password);
                 SQLConnection();
                 using (SqlCommand cmd = new SqlCommand("ValidateLogin", conn))
                 {
