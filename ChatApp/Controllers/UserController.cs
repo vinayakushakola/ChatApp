@@ -5,6 +5,7 @@
 //
 
 using ChatAppBusinessLayer.Interfaces;
+using ChatAppCommonLayer.Models;
 using ChatAppCommonLayer.RequestModels;
 using ChatAppCommonLayer.ResponseModels;
 using Microsoft.AspNetCore.Authorization;
@@ -125,6 +126,7 @@ namespace ChatApp.Controllers
                     token = GenerateToken(data, "ForgotPassword");
                     success = true;
                     message = "Use this token to Reset Password";
+                    MsmqSender.SendToMsmq(data.Email, token);
                     return Ok(new { success, message, token });
                 }
                 else
