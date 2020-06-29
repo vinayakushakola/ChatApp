@@ -22,7 +22,7 @@ namespace ChatAppBusinessLayer.Services
             _adminRepository = adminRepository;
         }
 
-        public async Task<AdminRegistrationResponse> AdminRegistration(AdminRegistrationRequest adminDetails)
+        public async Task<RegistrationResponse> AdminRegistration(AdminRegistrationRequest adminDetails)
         {
             try
             {
@@ -37,7 +37,7 @@ namespace ChatAppBusinessLayer.Services
             }
         }
 
-        public async Task<AdminRegistrationResponse> AdminLogin(AdminLoginRequest loginDetails)
+        public async Task<RegistrationResponse> AdminLogin(AdminLoginRequest loginDetails)
         {
             try
             {

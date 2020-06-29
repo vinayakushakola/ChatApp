@@ -12,8 +12,8 @@ namespace ChatAppBusinessLayer.Interfaces
 {
     public interface IAdminBusiness
     {
-        Task<AdminRegistrationResponse> AdminRegistration(AdminRegistrationRequest adminDetails);
+        Task<RegistrationResponse> AdminRegistration(AdminRegistrationRequest adminDetails);
 
-        Task<AdminRegistrationResponse> AdminLogin(AdminLoginRequest loginDetails);
+        Task<RegistrationResponse> AdminLogin(AdminLoginRequest loginDetails);
     }
 }

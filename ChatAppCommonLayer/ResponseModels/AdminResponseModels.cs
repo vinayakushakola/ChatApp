@@ -8,7 +8,7 @@ using System;
 
 namespace ChatAppCommonLayer.ResponseModels
 {
-    public class AdminRegistrationResponse
+    public class RegistrationResponse
     {
         public int AdminID { get; set; }
 

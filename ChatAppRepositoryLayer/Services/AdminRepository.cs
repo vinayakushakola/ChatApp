@@ -41,11 +41,11 @@ namespace ChatAppRepositoryLayer.Services
         /// </summary>
         /// <param name="adminDetails">Admin Registration Details</param>
         /// <returns>If data added successully, return response data else null or exception</returns>
-        public async Task<AdminRegistrationResponse> AdminRegistration(AdminRegistrationRequest adminDetails)
+        public async Task<RegistrationResponse> AdminRegistration(AdminRegistrationRequest adminDetails)
         {
             try
             {
-                AdminRegistrationResponse responseData = null;
+                RegistrationResponse responseData = null;
                 adminDetails.Password = EncodeDecode.EncodePasswordToBase64(adminDetails.Password);
                 SQLConnection();
                 using (SqlCommand cmd = new SqlCommand("AddUserDetails", conn))
@@ -77,11 +77,11 @@ namespace ChatAppRepositoryLayer.Services
         /// </summary>
         /// <param name="loginDetails">Admin Login Details</param>
         /// <returns>If data verified, return response data else ull or exception</returns>
-        public async Task<AdminRegistrationResponse> AdminLogin(AdminLoginRequest loginDetails)
+        public async Task<RegistrationResponse> AdminLogin(AdminLoginRequest loginDetails)
         {
             try
             {
-                AdminRegistrationResponse responseData = null;
+                RegistrationResponse responseData = null;
                 loginDetails.Password = EncodeDecode.EncodePasswordToBase64(loginDetails.Password);
                 SQLConnection();
                 using (SqlCommand cmd = new SqlCommand("ValidateLogin", conn))
@@ -108,14 +108,14 @@ namespace ChatAppRepositoryLayer.Services
         /// </summary>
         /// <param name="dataReader">Sql Data Reader</param>
         /// <returns>It return Response Data or Exception</returns>
-        private AdminRegistrationResponse AdminRegistrationResponseModel(SqlDataReader dataReader)
+        private RegistrationResponse AdminRegistrationResponseModel(SqlDataReader dataReader)
         {
             try
             {
-                AdminRegistrationResponse responseData = null;
+                RegistrationResponse responseData = null;
                 while (dataReader.Read())
                 {
-                    responseData = new AdminRegistrationResponse()
+                    responseData = new RegistrationResponse()
                     {
                         AdminID = Convert.ToInt32(dataReader["ID"]),
                         FirstName = dataReader["FirstName"].ToString(),
