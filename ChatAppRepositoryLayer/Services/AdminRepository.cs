@@ -117,7 +117,7 @@ namespace ChatAppRepositoryLayer.Services
                 {
                     responseData = new RegistrationResponse()
                     {
-                        AdminID = Convert.ToInt32(dataReader["ID"]),
+                        ID = Convert.ToInt32(dataReader["ID"]),
                         FirstName = dataReader["FirstName"].ToString(),
                         LastName = dataReader["LastName"].ToString(),
                         Email = dataReader["Email"].ToString(),

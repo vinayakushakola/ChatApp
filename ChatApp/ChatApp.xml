@@ -26,5 +26,69 @@
             <param name="tokenType">Token Type</param>
             <returns>It return token else exception</returns>
         </member>
+        <member name="M:ChatApp.Controllers.UserController.Registration(ChatAppCommonLayer.RequestModels.RegistrationRequest)">
+            <summary>
+            User Registration
+            </summary>
+            <param name="userDetails">User Details</param>
+            <returns>If data found return Ok else Not found or Bad request</returns>
+        </member>
+        <member name="M:ChatApp.Controllers.UserController.Login(ChatAppCommonLayer.RequestModels.LoginRequest)">
+            <summary>
+            User Login
+            </summary>
+            <param name="loginDetails">Login Details</param>
+            <returns>If data found return Ok else Not found or Bad request</returns>
+        </member>
+        <member name="M:ChatApp.Controllers.UserController.ForgotPassword(ChatAppCommonLayer.RequestModels.ForgotPasswordRequest)">
+            <summary>
+            Forgot Password
+            </summary>
+            <param name="forgotPassword">Forgot Password Data</param>
+            <returns>If data found return Ok else Not found or Bad request</returns>
+        </member>
+        <member name="M:ChatApp.Controllers.UserController.ResetPassword(ChatAppCommonLayer.RequestModels.ResetPasswordRequest)">
+            <summary>
+            Reset Password
+            </summary>
+            <param name="resetPassword">Reset Password Data</param>
+            <returns>If reset password is successfull return ok else Not found or Bad request</returns>
+        </member>
+        <member name="M:ChatApp.Controllers.UserController.GenerateToken(ChatAppCommonLayer.ResponseModels.RegistrationResponse,System.String)">
+            <summary>
+            Generate Token
+            </summary>
+            <param name="userDetails">User Details</param>
+            <param name="tokenType">Token Type</param>
+            <returns>It returns token</returns>
+        </member>
+        <member name="M:ChatApp.Controllers.UserController.ValidateRegisterRequest(ChatAppCommonLayer.RequestModels.RegistrationRequest)">
+            <summary>
+            It Validate Registration Request
+            </summary>
+            <param name="userDetails">User Details</param>
+            <returns>If validation successfull return true else false</returns>
+        </member>
+        <member name="M:ChatApp.Controllers.UserController.ValidateLoginRequest(ChatAppCommonLayer.RequestModels.LoginRequest)">
+            <summary>
+            It Validate The Login Request 
+            </summary>
+            <param name="loginDetails">Login Details</param>
+            <returns>If validation successfull return true else false</returns>
+        </member>
+        <member name="M:ChatApp.Controllers.UserController.ValidateForgotPasswordRequest(ChatAppCommonLayer.RequestModels.ForgotPasswordRequest)">
+            <summary>
+            It Validate the Forget Password Request
+            </summary>
+            <param name="forgotPassword">Forget Password Data</param>
+            <returns>If validation is successfull return true else false</returns>
+        </member>
+        <member name="M:ChatApp.Controllers.UserController.ValidateResetPasswordRequest(ChatAppCommonLayer.RequestModels.ResetPasswordRequest)">
+            <summary>
+            It Validate the Reset Password Request 
+            </summary>
+            <param name="resetPassword">Reset Password Data</param>
+            <returns>If validation is Successfull return true else false</returns>
+        </member>
     </members>
 </doc>

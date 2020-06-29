@@ -23,12 +23,6 @@ namespace ChatAppCommonLayer.RequestModels
         public string Email { get; set; }
 
         [Required]
-        [MinLength(10, ErrorMessage = "Your Mobile Number Should have 10 numbers")]
-        [MaxLength(10, ErrorMessage = "Your Mobile Number Should have 10 numbers")]
-        [RegularExpression("^[0-9]+$", ErrorMessage = "Your Mobile Number should contain only numbers!")]
-        public string Mobile { get; set; }
-
-        [Required]
         [MinLength(5, ErrorMessage = "Your Password Should be Minimum Length of 5")]
         public string Password { get; set; }
     }

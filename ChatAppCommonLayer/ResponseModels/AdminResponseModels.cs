@@ -10,7 +10,7 @@ namespace ChatAppCommonLayer.ResponseModels
 {
     public class RegistrationResponse
     {
-        public int AdminID { get; set; }
+        public int ID { get; set; }
 
         public string FirstName { get; set; }
 

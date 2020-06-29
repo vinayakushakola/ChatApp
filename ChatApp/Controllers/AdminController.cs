@@ -111,7 +111,7 @@ namespace ChatApp.Controllers
 
                 var claims = new[]
                 {
-                    new Claim("AdminID", adminDetails.AdminID.ToString()),
+                    new Claim("AdminID", adminDetails.ID.ToString()),
                     new Claim("Email", adminDetails.Email.ToString()),
                     new Claim("TokenType", tokenType),
                     new Claim("UserRole", adminDetails.UserRole.ToString())
