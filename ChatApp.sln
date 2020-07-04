@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30002.166
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatApp", "ChatApp\ChatApp.csproj", "{F2567354-1145-42A7-908B-8C6FAFD508E2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChatApp", "ChatApp\ChatApp.csproj", "{F2567354-1145-42A7-908B-8C6FAFD508E2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatAppBusinessLayer", "ChatAppBusinessLayer\ChatAppBusinessLayer.csproj", "{FB8492B1-CD95-4D82-BC33-C07CD13D5D82}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChatAppBusinessLayer", "ChatAppBusinessLayer\ChatAppBusinessLayer.csproj", "{FB8492B1-CD95-4D82-BC33-C07CD13D5D82}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatAppCommonLayer", "ChatAppCommonLayer\ChatAppCommonLayer.csproj", "{2A55607F-9F3B-41F6-BD0D-F61DECF05578}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChatAppCommonLayer", "ChatAppCommonLayer\ChatAppCommonLayer.csproj", "{2A55607F-9F3B-41F6-BD0D-F61DECF05578}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatAppRepositoryLayer", "ChatAppRepositoryLayer\ChatAppRepositoryLayer.csproj", "{D176CEEA-1802-4D87-B49E-EA9B45CB1F3B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChatAppRepositoryLayer", "ChatAppRepositoryLayer\ChatAppRepositoryLayer.csproj", "{D176CEEA-1802-4D87-B49E-EA9B45CB1F3B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatAppMsmqListener", "ChatAppMsmqListener\ChatAppMsmqListener.csproj", "{F0D49B22-112D-4190-B01C-362D52544E27}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChatAppMsmqListener", "ChatAppMsmqListener\ChatAppMsmqListener.csproj", "{F0D49B22-112D-4190-B01C-362D52544E27}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatAppFrontend", "ChatAppFrontend\ChatAppFrontend.csproj", "{369457AE-7842-4FB3-A616-EA901E0C61EE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{F0D49B22-112D-4190-B01C-362D52544E27}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F0D49B22-112D-4190-B01C-362D52544E27}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F0D49B22-112D-4190-B01C-362D52544E27}.Release|Any CPU.Build.0 = Release|Any CPU
+		{369457AE-7842-4FB3-A616-EA901E0C61EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{369457AE-7842-4FB3-A616-EA901E0C61EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{369457AE-7842-4FB3-A616-EA901E0C61EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{369457AE-7842-4FB3-A616-EA901E0C61EE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

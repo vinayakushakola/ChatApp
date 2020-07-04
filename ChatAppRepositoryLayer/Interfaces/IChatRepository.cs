@@ -6,12 +6,15 @@
 
 using ChatAppCommonLayer.RequestModels;
 using ChatAppCommonLayer.ResponseModels;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace ChatAppRepositoryLayer.Interfaces
 {
     public interface IChatRepository
     {
+        Task<List<ChatResponse>> GetAllMessages();
+
         Task<ChatResponse> SendMessage(int userID, ChatRequest chatRequest);
     }
 }

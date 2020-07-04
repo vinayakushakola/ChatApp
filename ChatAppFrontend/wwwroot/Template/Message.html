@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+
+    <script type="text/javascript" src="/js//GetMessages.js"></script>
+    <title></title>
+</head>
+<body>
+    <center>
+       
+        <div id="chatBox">
+            <span>
+                <a href="/Template//Dashboard.html" style="color:darkred; margin-left:40rem; margin-top:10px">Back</a>
+            </span>
+            <div id="chatArea">
+                <input id="messageToSend" type="text" placeholder="Type a message" autocomplete="off" />
+                <button type="button" id="sendButton" onclick="SendMessage()">Send</button>
+            </div>
+        </div>
+    </center>
+    <style>
+        #chatBox {
+            background-color: aliceblue;
+            height: auto;
+            width: 50rem;
+            margin-top: 2rem;
+           
+        }
+
+        #chatArea{
+            margin-left:10px;
+            height:auto;
+            width:42rem;
+            background-color:paleturquoise;
+        }
+        h1 {
+            margin-left: 20px;
+            color: black;
+            height: 5%;
+            text-align: initial;
+            padding-left: 10px;
+            margin-top: 18px;
+            flex-direction: column-reverse;
+            margin-top: 4px;
+        }
+        h3 {
+            color: black;
+            height: 100%;
+            /*text-align: initial;
+            padding-left: 10px;
+            margin-top:5px;*/
+            background-color: aqua;
+            flex-direction: column-reverse;
+        }
+
+        #sendButton {
+            margin-top: 8rem;
+            font-family: "Roboto", sans-serif;
+            text-transform: uppercase;
+            background: green;
+            padding: 20px;
+            font-size: 14px;
+            cursor: pointer;
+            width: 100px;
+            border: 0;
+            outline: 0;
+        }
+        #messageToSend{
+            padding:13px;
+            width:30rem;
+            font-size:20px;
+            background-color:antiquewhite;
+        
+        }
+    </style>
+</body>
+</html>

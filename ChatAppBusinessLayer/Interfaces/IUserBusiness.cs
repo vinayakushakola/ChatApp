@@ -6,12 +6,15 @@
 
 using ChatAppCommonLayer.RequestModels;
 using ChatAppCommonLayer.ResponseModels;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace ChatAppBusinessLayer.Interfaces
 {
     public interface IUserBusiness
     {
+        Task<List<RegistrationResponse>> GetListOfUsers();
+
         Task<RegistrationResponse> UserRegistration(RegistrationRequest userDetails);
 
         Task<RegistrationResponse> UserLogin(LoginRequest loginDetails);

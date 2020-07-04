@@ -9,7 +9,9 @@ using ChatAppCommonLayer.ResponseModels;
 using ChatAppRepositoryLayer.Interfaces;
 using Microsoft.Extensions.Configuration;
 using System;
+using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Reflection.Metadata.Ecma335;
 using System.Threading.Tasks;
 
 namespace ChatAppRepositoryLayer.Services
@@ -34,6 +36,48 @@ namespace ChatAppRepositoryLayer.Services
             string sqlConnectionString = _configuration.GetConnectionString("ChatAppDBConnection");
             conn = new SqlConnection(sqlConnectionString);
         }
+
+        /// <summary>
+        /// Fetch data from the database
+        /// </summary>
+        /// <param name="userID">userID</param>
+        /// <returns>If Data Found return Response Data else null or Exception</returns>
+        public async Task<List<RegistrationResponse>> GetListOfUsers()
+        {
+            try
+            {
+                List<RegistrationResponse> listOfUsers = new List<RegistrationResponse>();
+                SQLConnection();
+                using (SqlCommand cmd = new SqlCommand("GetAllUsers", conn))
+                {
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    
+                    conn.Open();
+                    SqlDataReader dataReader = await cmd.ExecuteReaderAsync();
+                    while (dataReader.Read())
+                    {
+                        var responseData = new RegistrationResponse
+                        {
+                            ID = Convert.ToInt32(dataReader["ID"]),
+                            FirstName = dataReader["FirstName"].ToString(),
+                            LastName = dataReader["LastName"].ToString(),
+                            Email = dataReader["Email"].ToString(),
+                            IsActive = Convert.ToBoolean(dataReader["IsActive"]),
+                            UserRole = dataReader["UserRole"].ToString(),
+                            CreatedDate = Convert.ToDateTime(dataReader["CreatedDate"]),
+                            ModifiedDate = Convert.ToDateTime(dataReader["ModifiedDate"])
+                        };
+                        listOfUsers.Add(responseData);
+                    }
+                };
+                return listOfUsers;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
 
         /// <summary>
         /// Add User Details into the database

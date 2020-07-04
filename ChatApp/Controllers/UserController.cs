@@ -40,6 +40,34 @@ namespace ChatApp.Controllers
         }
 
         /// <summary>
+        /// Shows all the Users
+        /// </summary>
+        /// <returns>If Data Found return Ok else Not Found or Bad Request</returns>
+        [HttpGet]
+        public async Task<IActionResult> GetListOfUsers()
+        {
+            try
+            {
+                var data = await _userBusiness.GetListOfUsers();
+                if (data != null)
+                {
+                    success = true;
+                    message = "Users Data Fetched  Successfully";
+                    return Ok(new { success, message, data });
+                }
+                else
+                {
+                    message = "No Data Found";
+                    return NotFound(new { success, message });
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { ex.Message });
+            }
+        }
+
+        /// <summary>
         /// User Registration
         /// </summary>
         /// <param name="userDetails">User Details</param>

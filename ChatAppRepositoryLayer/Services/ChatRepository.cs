@@ -9,6 +9,7 @@ using ChatAppCommonLayer.ResponseModels;
 using ChatAppRepositoryLayer.Interfaces;
 using Microsoft.Extensions.Configuration;
 using System;
+using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Threading.Tasks;
 
@@ -31,6 +32,38 @@ namespace ChatAppRepositoryLayer.Services
         {
             string sqlConnectionString = _configuration.GetConnectionString("ChatAppDBConnection");
             conn = new SqlConnection(sqlConnectionString);
+        }
+
+        public async Task<List<ChatResponse>> GetAllMessages()
+        {
+            try
+            {
+                List<ChatResponse> listOfChat = new List<ChatResponse>();
+                SQLConnection();
+                using (SqlCommand cmd = new SqlCommand("GetAllMessages", conn))
+                {
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                    conn.Open();
+                    SqlDataReader dataReader = await cmd.ExecuteReaderAsync();
+                    while (dataReader.Read())
+                    {
+                        var responseData = new ChatResponse
+                        {
+                            MessageID = Convert.ToInt32(dataReader["MessageID"]),
+                            UserID = Convert.ToInt32(dataReader["UserID"]),
+                            Message = dataReader["Message"].ToString(),
+                            ReceiverID = Convert.ToInt32(dataReader["ReceiverID"])
+                        };
+                        listOfChat.Add(responseData);
+                    }
+                };
+                return listOfChat;
+            }
+            catch (Exception exception)
+            {
+                throw new Exception(exception.Message);
+            }
         }
 
         /// <summary>

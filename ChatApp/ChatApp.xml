@@ -26,11 +26,23 @@
             <param name="tokenType">Token Type</param>
             <returns>It return token else exception</returns>
         </member>
+        <member name="M:ChatApp.Controllers.ChatController.GetAllMessages">
+            <summary>
+            Shows all the messages
+            </summary>
+            <returns>If Data Found return Ok else Not Found or Bad Request</returns>
+        </member>
         <member name="M:ChatApp.Controllers.ChatController.SendMessage(ChatAppCommonLayer.RequestModels.ChatRequest)">
             <summary>
             Send Message
             </summary>
             <param name="chatRequest">Chat Request Data</param>
+            <returns>If Data Found return Ok else Not Found or Bad Request</returns>
+        </member>
+        <member name="M:ChatApp.Controllers.UserController.GetListOfUsers">
+            <summary>
+            Shows all the Users
+            </summary>
             <returns>If Data Found return Ok else Not Found or Bad Request</returns>
         </member>
         <member name="M:ChatApp.Controllers.UserController.Registration(ChatAppCommonLayer.RequestModels.RegistrationRequest)">

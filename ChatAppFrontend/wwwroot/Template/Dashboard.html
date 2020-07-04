@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <!--<link rel="stylesheet" type="text/css" href="/css/site.css">
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/sass.js/0.6.3/sass.min.js"></script>-->
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+
+    <script type="text/javascript" src="/js/GetAllUsers.js"></script>
+    <!--<script src="../js/GetAllUsers.js"></script>-->
+
+    <title>ChatApp</title>
+</head>
+<body>
+
+    <div id="toolbar" style="justify-content:space-between">
+        <h1>Chat APP</h1>
+        <button type="submit" class="btn btn-success btn-sm" onclick="SignOut()">SignOut</button>
+    </div>
+    <div id="users">
+
+        <ul id="lists">
+            <h3>Users</h3>
+
+        </ul>
+    </div>
+    
+    <style>
+        #toolbar {
+            display: flex;
+            background-color: cadetblue;
+            height: 7rem;
+            color: rebeccapurple;
+        }
+
+        .signout {
+            font-family: "Roboto", sans-serif;
+            background: white;
+            font-size: 14px;
+            cursor: pointer;
+            width: 20%;
+            border: 0;
+            outline: 0;
+        }
+
+        #users {
+            height: 50rem;
+            float: left;
+            color: black;
+            width: 20%;
+            margin-top: 1rem;
+            margin-bottom: auto;
+        }
+
+        #name {
+            color: black;
+            font-size: 20px;
+        }
+
+        #receiver {
+            float: left;
+            width: 75%;
+            background-color: cadetblue;
+            margin-top: 1rem;
+            margin-bottom: auto;
+            height: 50rem;
+            margin-left: 40px;
+        }
+    </style>
+</body>
+</html>

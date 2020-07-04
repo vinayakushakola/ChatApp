@@ -1,4 +1,6 @@
-﻿using ChatAppBusinessLayer.Interfaces;
+﻿using ChatApp.Handlers;
+using ChatApp.SocketsManager;
+using ChatAppBusinessLayer.Interfaces;
 using ChatAppBusinessLayer.Services;
 using ChatAppRepositoryLayer.Interfaces;
 using ChatAppRepositoryLayer.Services;
@@ -83,6 +85,18 @@ namespace ChatApp
                 //... and tell Swagger to use those XML comments.
                 options.IncludeXmlComments(xmlPath);
             });
+            
+            // Web Socket
+            services.AddWebSocketManager();
+
+            // Cors
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy",
+                    builder => builder.AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader());
+            });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
@@ -95,10 +109,11 @@ namespace ChatApp
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, IServiceProvider serviceProvider)
         {
             app.UseSwagger();
-            app.UseSwaggerUI(c => {
+            app.UseSwaggerUI(c =>
+            {
                 c.SwaggerEndpoint("/swagger/ChatApp/swagger.json", "ChatApp Api");
                 c.RoutePrefix = string.Empty;
             });
@@ -111,6 +126,14 @@ namespace ChatApp
             {
                 app.UseHsts();
             }
+
+            app.UseWebSockets(); // Only for Kestrel
+            app.MapSockets("/ws", serviceProvider.GetService<WebSocketMessageHandler>());
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
+            app.UseFileServer(enableDirectoryBrowsing: true);
+            app.UseCors("CorsPolicy");
+
             app.UseAuthentication();
             app.UseHttpsRedirection();
             app.UseMvc();

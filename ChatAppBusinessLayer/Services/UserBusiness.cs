@@ -9,6 +9,7 @@ using ChatAppCommonLayer.RequestModels;
 using ChatAppCommonLayer.ResponseModels;
 using ChatAppRepositoryLayer.Interfaces;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace ChatAppBusinessLayer.Services
@@ -20,6 +21,18 @@ namespace ChatAppBusinessLayer.Services
         public UserBusiness(IUserRepository userRepository)
         {
             _userRepository = userRepository;
+        }
+
+        public async Task<List<RegistrationResponse>> GetListOfUsers()
+        {
+            try
+            {
+                return await _userRepository.GetListOfUsers();
+            }
+            catch(Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         public async Task<RegistrationResponse> UserRegistration(RegistrationRequest userDetails)

@@ -17,7 +17,6 @@ namespace ChatApp.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
     public class ChatController : ControllerBase
     {
         private readonly IChatBusiness _chatBusiness;
@@ -28,6 +27,34 @@ namespace ChatApp.Controllers
         public ChatController(IChatBusiness chatBusiness)
         {
             _chatBusiness = chatBusiness;
+        }
+
+        /// <summary>
+        /// Shows all the messages
+        /// </summary>
+        /// <returns>If Data Found return Ok else Not Found or Bad Request</returns>
+        [HttpGet("GetMessage/{receiverID}")]
+        public async Task<IActionResult> GetAllMessages()
+        {
+            try
+            {
+                var data = await _chatBusiness.GetAllMessages();
+                if (data != null)
+                {
+                    success = true;
+                    message = "Your Messages Fetched Successfully";
+                    return Ok(new { success, message, data });
+                }
+                else
+                {
+                    message = "Not Found";
+                    return NotFound(new { success, message });
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { ex.Message });
+            }
         }
 
         /// <summary>
